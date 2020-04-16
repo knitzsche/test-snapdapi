@@ -1,0 +1,3 @@
+#!/bin/sh -e
+echo "controlled-1 install hook run."
+snapctl stop ${SNAP_NAME}.controlled-1 --disable
