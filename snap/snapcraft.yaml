@@ -10,7 +10,7 @@ confinement: strict
 apps:
   list:
     command: bin/list
-    plugs: [ snapd-control ]
+    plugs: [ snapd-control, network, system-backup ]
 
 parts:
   snapdapi:

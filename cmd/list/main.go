@@ -1,9 +1,12 @@
 package main
 
 import (
+	_"fmt"
+	"log"
+
+
 	"github.com/knitzsche/test-remodel/snapdapi"
 	"github.com/snapcore/snapd/client"
-	"fmt"
 )
 
 func main() {
@@ -13,10 +16,10 @@ func main() {
 	listoptions := &client.ListOptions{}
 	snaps, err:= snap.List(names, listoptions)
 	if err != nil{
-		fmt.Println(err)
+		log.Println(err)
 	} else {
 		for _,s := range snaps {
-			fmt.Printf("Snap:%s, Revision: %s\n", s.Title, s.Revision)
+			log.Printf("Snap:%s, Revision: %s\n", s.Title, s.Revision)
 		}
 	}
 }
