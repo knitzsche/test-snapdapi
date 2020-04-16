@@ -16,5 +16,5 @@ parts:
   snapdapi:
     source: .
     plugin: go
-    go-importpath: github.com/knitzsche/test-controller-daemons
+    go-importpath: github.com/knitzsche/test-remodel
     build-packages: [ gcc ]
