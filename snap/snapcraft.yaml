@@ -8,9 +8,14 @@ grade: devel
 confinement: strict
 
 apps:
+  snap:
+    command: bin/snap
+    plugs: [ snapd-control, network, system-backup ]
   list:
     command: bin/list
     plugs: [ snapd-control, network, system-backup ]
+# system-backup now seems needed to use snapd-control 
+# see https://forum.snapcraft.io/t/possibly-missing-apparmor-network-permission/15054/
 
 parts:
   snapdapi:
