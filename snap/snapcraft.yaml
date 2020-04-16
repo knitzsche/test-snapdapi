@@ -8,6 +8,9 @@ grade: devel
 confinement: strict
 
 apps:
+  model:
+    command: bin/model
+    plugs: [ snapd-control, network, system-backup ]
   snap:
     command: bin/snap
     plugs: [ snapd-control, network, system-backup ]

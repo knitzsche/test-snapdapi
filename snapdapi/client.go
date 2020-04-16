@@ -1,12 +1,15 @@
 package snapdapi
 
 import (
-	"github.com/snapcore/snapd/client"
 	"sync"
+ 
+	"github.com/snapcore/snapd/client"
+        "github.com/snapcore/snapd/asserts"
 )
 
 // SnapdClient is a client of the snapd REST API
 type SnapdClient interface {
+        CurrentModelAssertion() (*asserts.Model, error)
 	Snap(name string) (*client.Snap, *client.ResultInfo, error)
 	List(names []string, opts *client.ListOptions) ([]*client.Snap, error)
 	Refresh(name string, options *client.SnapOptions) (string, error)
@@ -35,6 +38,11 @@ func NewClientAdapter() *ClientAdapter {
 	})
 
 	return clientInstance
+}
+
+//return current model assertion
+func (a *ClientAdapter) CurrentModelAssertion() (*asserts.Model, error) {
+	return a.snapdClient.CurrentModelAssertion()
 }
 
 // Snap returns the most recently published revision of the snap with the
