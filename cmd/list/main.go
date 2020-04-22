@@ -17,7 +17,7 @@ func main() {
 		fmt.Println(err)
 	} else {
 		for _,s := range snaps {
-			fmt.Printf("Snap:%s, Revision: %s\n", s.Name, s.Revision)
+			fmt.Printf("Name:%s, Revision: %s, Version %s, Channel %s, Confinement %s, Publisher %s, Status %s \n", s.Name, s.Revision, s.Version, s.Channel, s.Confinement, s.Publisher, s.Status)
 		}
 	}
 }
