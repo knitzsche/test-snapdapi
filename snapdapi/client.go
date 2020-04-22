@@ -41,6 +41,11 @@ func NewClientAdapter() *ClientAdapter {
 }
 
 //return current model assertion
+func (a *ClientAdapter) Remodel(b []byte) (string, error) {
+	return a.snapdClient.Remodel(b)
+}
+
+//return current model assertion
 func (a *ClientAdapter) CurrentModelAssertion() (*asserts.Model, error) {
 	return a.snapdClient.CurrentModelAssertion()
 }

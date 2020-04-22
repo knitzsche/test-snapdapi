@@ -11,6 +11,9 @@ apps:
   model:
     command: bin/model
     plugs: [ snapd-control, network, system-backup ]
+  remodel:
+    command: bin/remodel
+    plugs: [ snapd-control, network, system-backup, home ]
   snap:
     command: bin/snap
     plugs: [ snapd-control, network, system-backup ]
