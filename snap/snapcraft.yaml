@@ -1,4 +1,4 @@
-name: test-remodel
+name: test-snapdapi
 base: core18
 version: '1'
 summary: test a remodel
