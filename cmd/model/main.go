@@ -2,14 +2,12 @@ package main
 
 import (
 	"fmt"
-	
 
 	"github.com/knitzsche/test-remodel/snapdapi"
 )
 
 func main() {
 	snapC := snapdapi.NewClientAdapter()
-	//model := &asserts.Model{}
 	model, err := snapC.CurrentModelAssertion()
 	if err != nil{
 		fmt.Println(err)
@@ -31,7 +29,6 @@ func main() {
 	fmt.Printf("Store: %s\n", model.Store())
 	fmt.Printf("Required No Essential snaps: %s\n", model.RequiredNoEssentialSnaps())
 	fmt.Printf("Required With Essential Snaps: %s\n", model.RequiredWithEssentialSnaps())
-	fmt.Printf("All Snaps: %s\n", model.AllSnaps())
 	fmt.Printf("Serial Authority: %s\n", model.SerialAuthority())
 	fmt.Printf("System User Authority: %s\n", model.SystemUserAuthority())
 	fmt.Printf("Timestamp: %s\n", model.Timestamp())
