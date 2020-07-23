@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"os" 
+	"os"
+	"encoding/json"
 
 	"github.com/knitzsche/test-remodel/snapdapi"
 	"github.com/snapcore/snapd/client"
@@ -21,7 +22,8 @@ func main() {
 	if err != nil{
 		fmt.Println(err)
 	} else {
-		fmt.Printf("Snap:\n %#v\n", snap)
+		b, _ := json.MarshalIndent(snap, "", "    ")
+		fmt.Printf("Snap:\n %s\n", b)
 		fmt.Printf("ResultInfo\n: %#v\n", results)
 	}
 }
