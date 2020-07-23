@@ -17,6 +17,9 @@ apps:
   snap:
     command: bin/snap
     plugs: [ snapd-control, network, system-backup ]
+  updates-neeeded:
+    command: bin/updates-needed
+    plugs: [ snapd-control, network, system-backup ]
   list:
     command: bin/list
     plugs: [ snapd-control, network, system-backup ]

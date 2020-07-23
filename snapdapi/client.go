@@ -19,6 +19,8 @@ type SnapdClient interface {
 	Disable(name string, options *client.SnapOptions) (string, error)
 	Ack(b []byte) error
 	Conf(name string) (map[string]interface{}, error)
+	Find(opts *client.FindOptions) ([]*client.Snap, *client.ResultInfo, error)
+
 }
 
 var clientOnce sync.Once
@@ -60,8 +62,13 @@ func (a *ClientAdapter) Snap(name string) (*client.Snap, *client.ResultInfo, err
 func (a *ClientAdapter) Start(names []string, opts client.StartOptions) (changeID string, err error) {
 	return a.snapdClient.Start(names, opts)
 }
+
 // List returns the list of all snaps installed on the system
 // with names in the given list; if the list is empty, all snaps.
 func (a *ClientAdapter) List(names []string, opts *client.ListOptions) ([]*client.Snap, error) {
 	return a.snapdClient.List(names, opts)
+}
+
+func (a *ClientAdapter) Find(opts *client.FindOptions) ([]*client.Snap, *client.ResultInfo, error) {
+	return a.snapdClient.Find(opts)
 }
