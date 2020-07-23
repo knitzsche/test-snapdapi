@@ -22,8 +22,12 @@ func main() {
 	if err != nil{
 		fmt.Println(err)
 	} else {
-		b, _ := json.MarshalIndent(snap, "", "    ")
-		fmt.Printf("Snap:\n %s\n", b)
-		fmt.Printf("ResultInfo\n: %#v\n", results)
+		b, e := json.MarshalIndent(snap, "", "    ")
+		if e != nil {
+			fmt.Println(e)
+		} else {
+			fmt.Printf("Snap:\n %s\n", b)
+			fmt.Printf("ResultInfo\n: %#v\n", results)
+		}
 	}
 }
