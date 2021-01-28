@@ -24,11 +24,12 @@ func main() {
 	if err != nil{
 		fmt.Println(err)
 	} else {
-		b, e := json.MarshalIndent(result, "", "    ")
+		_, e := json.MarshalIndent(result, "", "    ")
 		if e != nil {
 			fmt.Println(e)
 		} else {
-			fmt.Printf("ResultInfo\n: %#v\n", b)
+			fmt.Printf("Username: %#v\n", result.Username)
+			fmt.Printf("Pub ssh: %#v\n", result.SSHKeys[0])
 		}
 	}
 }
