@@ -7,23 +7,6 @@ import (
         "github.com/snapcore/snapd/asserts"
 )
 
-// SnapdClient is a client of the snapd REST API
-type SnapdClient interface {
-        CurrentModelAssertion() (*asserts.Model, error)
-	Snap(name string) (*client.Snap, *client.ResultInfo, error)
-	List(names []string, opts *client.ListOptions) ([]*client.Snap, error)
-	Refresh(name string, options *client.SnapOptions) (string, error)
-	Revert(name string, options *client.SnapOptions) (string, error)
-	Remove(name string, options *client.SnapOptions) (string, error)
-	Enable(name string, options *client.SnapOptions) (string, error)
-	Disable(name string, options *client.SnapOptions) (string, error)
-	Ack(b []byte) error
-	Conf(name string) (map[string]interface{}, error)
-	Find(opts *client.FindOptions) ([]*client.Snap, *client.ResultInfo, error)
-	CreateUsers(opts []*client.CreateUserOptions) ([]*client.CreateUserResult, error)
-
-}
-
 var clientOnce sync.Once
 var clientInstance *ClientAdapter
 
@@ -76,4 +59,8 @@ func (a *ClientAdapter) Find(opts *client.FindOptions) ([]*client.Snap, *client.
 
 func (a *ClientAdapter) CreateUser(opts *client.CreateUserOptions) (*client.CreateUserResult, error) {
 	return a.snapdClient.CreateUser(opts)
+}
+
+func (a *ClientAdapter) RemoveUser(opts *client.RemoveUserOptions) ([]*client.User, error) {
+	return a.snapdClient.RemoveUser(opts)
 }
