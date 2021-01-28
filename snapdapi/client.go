@@ -20,6 +20,7 @@ type SnapdClient interface {
 	Ack(b []byte) error
 	Conf(name string) (map[string]interface{}, error)
 	Find(opts *client.FindOptions) ([]*client.Snap, *client.ResultInfo, error)
+	CreateUsers(opts []*client.CreateUserOptions) ([]*client.CreateUserResult, error)
 
 }
 
@@ -71,4 +72,8 @@ func (a *ClientAdapter) List(names []string, opts *client.ListOptions) ([]*clien
 
 func (a *ClientAdapter) Find(opts *client.FindOptions) ([]*client.Snap, *client.ResultInfo, error) {
 	return a.snapdClient.Find(opts)
+}
+
+func (a *ClientAdapter) CreateUser(opts *client.CreateUserOptions) (*client.CreateUserResult, error) {
+	return a.snapdClient.CreateUser(opts)
 }
