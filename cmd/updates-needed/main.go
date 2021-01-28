@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"encoding/json"
 
-	"github.com/knitzsche/test-remodel/snapdapi"
+	"github.com/knitzsche/test-snapdapi/snapdapi"
 	"github.com/snapcore/snapd/client"
 )
 

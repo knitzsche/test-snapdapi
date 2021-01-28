@@ -36,5 +36,5 @@ parts:
   snapdapi:
     source: .
     plugin: go
-    go-importpath: github.com/knitzsche/test-remodel
+    go-importpath: github.com/knitzsche/test-snapdapi
     build-packages: [ gcc ]
