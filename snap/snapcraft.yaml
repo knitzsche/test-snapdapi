@@ -1,5 +1,5 @@
 name: test-snapdapi
-base: core18
+base: core20
 version: '1'
 summary: test a remodel
 description: Remodel from the snapd api
@@ -40,5 +40,4 @@ parts:
   snapdapi:
     source: .
     plugin: go
-    go-importpath: github.com/knitzsche/test-snapdapi
     build-packages: [ gcc ]
