@@ -1,10 +1,10 @@
 name: test-snapdapi
 base: core20
 version: '1'
-summary: test a remodel
-description: Remodel from the snapd api
+summary: test snapd rest api
+description: snap rest api test
 
-grade: devel
+grade: stable
 confinement: strict
 
 apps:
@@ -33,7 +33,7 @@ apps:
     command: bin/snap-refresh-pending
     plugs: [ snapd-control, network, system-backup ]
 
-# system-backup now seems needed to use snapd-control 
+# system-backup now seems needed to use snapd-control from snap CLI app.  
 # see https://forum.snapcraft.io/t/possibly-missing-apparmor-network-permission/15054/
 
 parts:
